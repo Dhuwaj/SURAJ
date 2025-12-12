@@ -1,0 +1,20 @@
+[project]
+name = "suraj_app"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "SGtOriginal", email = "soham.ghosh@bca.christuniversity.in"},
+    {name = "SleepyFero", email = "dhuwaj.agarwal@bscdsh.christuniversity.in"}
+]
+license = {text = "GPLv3"}
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask (>=3.1.2,<4.0.0)",
+    "nuitka (>=2.8.9,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,32 @@
+body {
+    font-family: Inter, system-ui;
+    background: linear-gradient(135deg, #fefae0, #ecfdf5);
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(26, 159, 85, 0.08);
+    border: 1px solid #e7f6eb;
+}
+
+.muted {
+    color: #64748b;
+}
+
+.suraj-green {
+    background-color: #1a9f55;
+}
+
+.suraj-yellow {
+    background-color: #f2c94c;
+}
+
+.logo {
+    width: clamp(60px, 8vw, 100px);
+    height: auto;
+}
+
+.SURAJ {
+    font-family: 'Yatra One';
+}

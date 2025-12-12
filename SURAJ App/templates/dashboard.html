@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SURAJ Energy Dashboard — Monitor Smart Devices</title>
+
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo/logo.png') }}">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+</head>
+
+<body class="p-6">
+  <div class="max-w-7xl mx-auto">
+
+    <header class="flex items-start justify-between mb-6">
+      <div>
+        <h1 class="text-3xl font-bold text-[#1a9f55] flex items-center gap-2">
+          <img src="{{ url_for('static', filename='logo/logo.png') }}" class="logo">
+           <span class="SURAJ">SURAJ</span> Energy Dashboard
+        </h1>
+        <p class="muted -mt-1">Track smart device consumption & renewable generation — aligned with SDG 7.</p>
+      </div>
+
+      <div class="space-x-2">
+        <button id="exportCsv" class="px-4 py-2 bg-[#1a9f55] text-white rounded-md shadow-md hover:bg-[#168a49]">
+          Export CSV
+        </button>
+        <button id="resetFilters" class="px-4 py-2 border border-[#1a9f55] text-[#1a9f55] rounded-md hover:bg-[#f0fff5]">
+          Reset
+        </button>
+      </div>
+    </header>
+
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <aside class="card p-4 lg:col-span-1">
+        <h3 class="font-semibold text-[#1a9f55] mb-3">⚙ Filters</h3>
+
+        <div class="mb-4">
+          <label class="block text-sm muted">Metric</label>
+          <select id="metricSelect" class="w-full mt-1 p-2 border rounded-md focus:ring-[#1a9f55] focus:border-[#1a9f55]">
+            <option value="both">Consumption & Production</option>
+            <option value="consumption">Consumption Only</option>
+            <option value="production">Production Only</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm muted">Devices</label>
+          <div id="deviceList" class="mt-2 space-y-2 max-h-48 overflow-auto"></div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm muted">Date range (months)</label>
+          <input id="monthsRange" type="range" min="1" max="12" value="12" class="w-full mt-2 accent-[#1a9f55]">
+          <div class="text-sm muted mt-1">Last <span id="monthsCount">12</span> months</div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-[#1a9f55]">Legend</h4>
+          <div class="flex gap-3 mt-2 items-center">
+            <div class="w-3 h-3 bg-[#1a9f55] rounded-sm"></div>
+            <div class="muted">Consumption</div>
+            <div class="w-3 h-3 bg-[#f2c94c] rounded-sm ml-4"></div>
+            <div class="muted">Production</div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="lg:col-span-2 space-y-6">
+
+        <div class="card p-4">
+          <h3 class="font-semibold text-[#1a9f55] mb-2">📊 Monthly Energy Breakdown</h3>
+          <canvas id="barChart" height="120"></canvas>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card p-4">
+            <h3 class="font-semibold text-[#1a9f55] mb-2">📈 Device Trend (Total Energy)</h3>
+            <canvas id="lineChart" height="120"></canvas>
+          </div>
+
+          <div class="card p-4">
+            <h3 class="font-semibold text-[#1a9f55] mb-2">🔄 Production vs Consumption</h3>
+            <canvas id="doughnutChart" height="120"></canvas>
+          </div>
+        </div>
+
+        <div class="card p-4">
+          <h3 class="font-semibold text-[#1a9f55] mb-2">📋 Data Table</h3>
+          <div class="overflow-auto">
+            <table id="dataTable" class="min-w-full text-sm">
+              <thead class="bg-[#ecfdf5]">
+                <tr>
+                  <th class="px-4 py-2 text-left">Device</th>
+                  <th class="px-4 py-2 text-right">Consumption (kWh)</th>
+                  <th class="px-4 py-2 text-right">Production (kWh)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="mt-6 text-sm muted">
+      <span class="SURAJ">SURAJ</span> — Bringing clean, affordable, and reliable energy monitoring to everyone.  
+      <br> Supports UN Sustainable Development Goal 7 (Affordable & Clean Energy).
+    </footer>
+  </div>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+
+</html>
