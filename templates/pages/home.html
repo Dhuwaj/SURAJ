@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="tagline">
+        <span class="tag-top">
+            Monitor.<br>Manage.<br>Save.
+        </span>
+        <span class="tag-bottom">
+            Supporting SDG 7<br>Affordable & Clean Energy
+        </span>
+
+        <div class="tag-btns">
+            <button class="tag-btn"><a href="/download" style="text-decoration: none;">Getting Started</a></button>
+            <button class="tag-btn"><a href="/download" style="text-decoration: none;">Download</a></button>
+        </div>
+    </div>
+
+    <div class="tag-content">
+        <div class="name-center">
+            <span class="name SURAJ">SURAJ</span>
+        </div>
+        <span class="content">
+            Take control of your energy production and consumption. Regardless of solar panels, inverters,
+            or traditional electrical systems, our app provides real-time insights to help you reduce waste,
+            lower costs, and move toward a cleaner, sustainable future.
+        </span>
+    </div>
+</div>
+{% endblock %}

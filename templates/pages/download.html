@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Download SURAJ</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="download">
+    <div class="container">
+        <h1>Download <span class="SURAJ">SURAJ</span></h1>
+        <p>Select the version for your device:</p>
+
+        <div class="button-row">
+            <a class="btn windows" href="{{ url_for('static', filename='content/SurajApp.exe') }}" download>
+                Download for Windows
+            </a>
+
+            <a class="btn android" href="your-android-app.apk" download>
+                Download for Android
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

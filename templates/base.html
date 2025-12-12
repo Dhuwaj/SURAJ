@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>SURAJ</title>{% endblock %}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo/logo.png') }}">
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='logo/logo.png') }}" class="logo">
+            <span class="brand-name">SURAJ</span>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-btns" id="nav-menu">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/download" class="nav-link">Download</a>
+            <a href="/support" class="nav-link">Support</a>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
+    </script>
+
+</body>
+
+</html>

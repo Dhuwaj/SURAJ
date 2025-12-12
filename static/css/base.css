@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffbd59;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1ecc78;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: clamp(60px, 8vw, 100px);
+    height: auto;
+}
+
+.brand-name {
+    font-family: 'Yatra One';
+    font-size: clamp(24px, 3vw, 40px);
+    color: black;
+}
+
+.nav-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    font-size: clamp(18px, 2.2vw, 30px);
+    text-decoration: none;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.25s;
+}
+
+.nav-link:hover {
+    background-color: #14b368;
+}
+
+.hamburger {
+    font-size: 32px;
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-btns {
+        display: none;
+        flex-direction: column;
+        background-color: #1ecc78;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 10px 0;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-btns.show {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 12px;
+        text-align: right;
+        width: 100%;
+    }
+}
+
+.SURAJ {
+    font-family: 'Yatra One';
+}

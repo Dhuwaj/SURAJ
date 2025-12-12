@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>SURAJ Support</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/support.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="support">
+    <div class="container">
+        <h1><span class="SURAJ">SURAJ</span> Support</h1>
+        <p style="text-align:center; font-size:1.3rem;">
+            Need help? You're in the right place.
+            Our team is here to assist you with installation, device setup, and troubleshooting.
+        </p>
+
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <div class="faq">
+            <div class="faq-item">
+                <h3>How do I install <span class="SURAJ">SURAJ</span>?</h3>
+                <p>Download the version for your device from our Downloads page. Follow the on-screen instructions to
+                    complete installation.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Why is my device not connecting?</h3>
+                <p>Ensure there is wireless or wired connection to your device and your device is powered on. Restart
+                    the app if the issue
+                    persists.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Does <span class="SURAJ">SURAJ</span> support solar energy monitoring?</h3>
+                <p>Yes. <span class="SURAJ">SURAJ</span> can track solar panels, inverters, wind microturbines, and
+                    other renewable systems.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I track my energy usage?</h3>
+                <p>Open the Dashboard in the app to view real-time and historical consumption data.</p>
+            </div>
+        </div>
+
+        <h2>Contact Support</h2>
+        <p>If you still need assistance, send us a message below.</p>
+
+        {% if success %}
+        <p>Message Sent</p>
+        {% else %}
+        <form action="/support" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Describe your issue..." required></textarea>
+            <button class="submit-button" type="submit">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
